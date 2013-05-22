@@ -1,0 +1,84 @@
+<h1><?= $this->item['arm_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>  
+
+        <tr class="baseinfo">
+            <td>Type</td>
+            <td class="secondcolumn"><?= $this->item['arm_type'] ?></td>
+        </tr>  
+        <? if ($this->item['arm_progression_level']): ?>
+            <tr class="baseinfo">
+                <td>Progress Level</td>
+                <td class="secondcolumn">PL <?= $this->item['arm_progression_level'] ?></td>
+            </tr>          
+        <? endif; ?>
+        <? if ($this->item['arm_usetype']): ?>
+            <tr class="baseinfo">
+                <td>Type</td>
+                <td class="secondcolumn"><?= $this->item['arm_usetype'] ?></td>
+            </tr>          
+        <? endif; ?>
+        <? if ($this->item['arm_price']): ?>
+            <tr class="baseinfo">
+                <td>Price</td>
+                <td class="secondcolumn"><?= $this->item['arm_price'] ?></td>
+            </tr>          
+        <? endif; ?>            
+        <tr class="baseinfo">
+            <td>Bonus</td>
+            <td><?= $this->bonus($this->item['arm_bonus']) ?></td>
+        </tr>          
+        <tr class="baseinfo">
+            <td>Max Dex</td>
+            <td><?= $this->bonus($this->item['arm_maxdex']) ?></td>
+        </tr>          
+        
+        <tr class="baseinfo">
+            <td>Armour Check Penalty</td>
+            <td><?= $this->bonus($this->item['arm_armorcheckpenalty']) ?></td>
+        </tr>        
+
+        <tr class="baseinfo">
+            <td>Arcane Spell Failure</td>
+            <td><?= $this->item['arm_arcanespellfailure'] ?>%</td>
+        </tr>                
+
+        <tr class="baseinfo">
+            <td>Speed 30'</td>
+            <td><?= $this->item['arm_speed30ft'] ?>'</td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Speed 20'</td>
+            <td><?= $this->item['arm_speed20ft'] ?>'</td>
+        </tr>                
+        <tr class="baseinfo">
+            <td>Weight</td>
+            <td><?= $this->item['arm_weight'] ?></td>
+        </tr>                
+        
+        <? foreach((array)$this->item['arm_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['arso_page'] ? 'p' . $value['arso_page'] : '') ?></id></td>
+            </tr>        
+        <? endforeach; ?>
+        <tr class="baseinfo">
+            <td colspan="2" class="detailtext"><?= $this->item['arm_description'] ?></td>
+        </tr>              
+
+    </tbody>
+</table>
+
+
+<?php if ($this->item['arm_img']): ?>
+<img class="hidden cover" src="/img/equipment/<?= $this->item['arm_img'] ?>">
+<?php endif; ?>
+
+<? foreach((array)$this->item['arm_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/armour/">Armour</a>
+<a class="menuedit" href="/armour/edit/<?= $this->item['arm_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>        

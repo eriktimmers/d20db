@@ -1,0 +1,40 @@
+<h1>Schools</h1>
+
+
+
+<table>
+    <? foreach($this->list as $row): ?>
+        <? if ($row['subs_name']): ?>
+            <tr class ="subschools">
+                <td class="empty">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td class="name"><?= $row['subs_name'] ?></td>
+                <td class="icons"><?
+        echo $this->Icons()->editIcon('/school/subschool/' . $row['subs_id'], 
+                                      array("type" => "subschool", 
+                                            "id"=>$row['subs_id']));       
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "subschool", 
+                                              "id"=>$row['subs_id']));
+                ?></td>
+            </tr>
+        <? else: ?>
+            <tr class ="schools">
+                <td colspan="2" class="name"><?= $row['sch_name'] ?></td>
+                <td class="icons"><?
+        echo $this->Icons()->editIcon('/school/edit/' . $row['sch_id'], 
+                                      array("type" => "school", 
+                                            "id"=>$row['sch_id']));       
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "school", 
+                                              "id"=>$row['sch_id']));
+                ?></td>
+            </tr>
+        <? endif; ?>
+    
+    <? endforeach; ?>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/school/edit/">Create New School</a>
+<a class="mainmenu" href="/school/subschool/">Create New Subschool</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

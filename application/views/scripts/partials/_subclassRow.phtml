@@ -1,0 +1,21 @@
+<tr class="list_classes">
+    <td class="name"><?= $this->cls_name ?></td>
+    <td class="source"><?= $this->src_name ?></td>
+    <td class="descr"><?= $this->cls_short_description ?></td>        
+    <td class="type"><?= ($this->cls_arcanespells == 'Y' ? 'A' : '') . 
+                         ($this->cls_divinespells == 'Y' ? 'D' : '') .
+                         ($this->cls_psionics == 'Y' ? 'P' : '')
+                    ?></td>
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/class/view/' . $this->cls_id, 
+                                  array("type" => "class", 
+                                        "id"=>$this->cls_id));
+        echo $this->Icons()->editIcon('/class/edit/' . $this->cls_id, 
+                                      array("type" => "class", 
+                                            "id"=>$this->cls_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "class", 
+                                              "id"=>$this->cls_id));
+        ?></td>
+        
+</tr>

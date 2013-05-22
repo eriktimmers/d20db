@@ -1,0 +1,20 @@
+<tr class="list_sources">
+    <td class="name"><?= $this->src_name ?></td>
+    <td class="abbreviation"><?= $this->src_abbriviation ?></td>
+    <td class="publisher"><?= $this->src_publisher ?></td>
+    <td class="type"><?= $this->sct_name ?></td>    
+    <td class="system"><?= $this->sys_name ?></td>        
+    <td class="world"><?= $this->wrl_name ?></td>        
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/source/view/' . $this->src_id, 
+                                  array("type" => "source", 
+                                        "id"=>$this->sys_id));
+        echo $this->Icons()->editIcon('/source/edit/' . $this->src_id, 
+                                      array("type" => "source", 
+                                            "id"=>$this->src_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "source", 
+                                              "id"=>$this->src_id));
+        ?></td>
+        
+</tr>

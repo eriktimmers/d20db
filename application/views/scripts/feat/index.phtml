@@ -1,0 +1,12 @@
+<h1>Feats</h1>
+
+<?= $this->form ?>
+
+<table>
+    <!--tr><th>Name</th><th>Type</th><th>System</th><th>Sources</th><th>World</th></tr-->
+    <tr><?= $this->partialLoop('partials/_featRow.phtml', $this->list); ?></tr>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/feat/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

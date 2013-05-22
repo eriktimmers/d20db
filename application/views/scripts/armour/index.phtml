@@ -1,0 +1,12 @@
+<h1>Armour</h1>
+
+<?= $this->form ?>
+
+<table>
+    <tr><th></th><th>Type</th><th>Bonus</th><th>Weight</th><th></th></tr>
+    <tr><?= $this->partialLoop('partials/_armourRow.phtml', $this->list); ?></tr>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/armour/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

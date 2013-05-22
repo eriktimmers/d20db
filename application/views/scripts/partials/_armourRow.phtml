@@ -1,0 +1,22 @@
+<tr class="list_armour">
+    <td class="name"><?= $this->arm_name ?></td>
+    <td class="type"><?= $this->arm_type ?></td>
+    <td class="bonus"><?= $this->bonus($this->arm_bonus) ?></td> 
+    <td class="weight"><?= $this->arm_weight ?> lb</td> 
+    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/armour/view/' . $this->arm_id, 
+                                  array("type" => "armour", 
+                                        "id"=>$this->arm_id));
+        echo $this->Icons()->editIcon('/armour/edit/' . $this->arm_id, 
+                                      array("type" => "armour", 
+                                            "id"=>$this->arm_id));       
+        echo $this->Icons()->copyIcon(null, 
+                                        array("type" => "armour", 
+                                              "id"=>$this->arm_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "armour", 
+                                              "id"=>$this->arm_id));
+        ?></td>
+        
+</tr>

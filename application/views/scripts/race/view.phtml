@@ -1,0 +1,115 @@
+<h1><?= $this->item['rce_subrace'] ?> <?= $this->item['rce_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>  
+        <tr class="baseinfo">
+            <td>Type</td>
+            <td><?= $this->item['rce_group'] ?></td>
+        </tr>        
+        <? if ($this->item['rce_subrace']): ?>
+            <tr class="baseinfo">
+                <td>Race</td>
+                <td><?= $this->item['rce_name'] ?></td>
+            </tr>
+            <tr class="baseinfo">
+                <td>Subgoup</td>
+                <td><?= $this->item['rce_subrace'] ?></td>
+            </tr>
+            
+        <? endif ?>   
+        <tr class="baseinfo">
+            <td>Description</td>
+            <td><?= $this->item['rce_description'] ?></td>
+        </tr>
+        <? foreach($this->item['rce_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['rcso_page'] ? 'p' . $value['rcso_page'] : '') ?></id></td>
+            </tr>        
+        <? endforeach; ?>
+        <? if ($this->item['rce_ecl'] > 0): ?>
+            <tr class="baseinfo">
+                <td>Level Adjustment</td>
+                <td><?= $this->item['rce_ecl'] ?></td>
+            </tr>            
+        <? endif; ?>
+        <? if ($this->item['rce_basehd'] > 0): ?>
+            <tr class="baseinfo">
+                <td>Base Hit Dice</td>
+                <td><?= $this->item['rce_basehd'] ?></td>
+            </tr>            
+        <? endif; ?>            
+        <tr class="baseinfo">
+            <td>Size</td>
+            <td><?= $this->item['rce_size'] ?></td>
+        </tr>            
+        <tr class="baseinfo">
+            <td>Speed</td>
+            <td><?= $this->item['rce_speed'] ?></td>
+        </tr> 
+        <? if ($this->item['rce_naturalarmor'] > 0): ?>
+            <tr class="baseinfo">
+                <td>Natural Armour</td>
+                <td><?= ($this->item['rce_naturalarmor'] > 0 ? '+': '') . $this->item['rce_naturalarmor'] ?></td>
+            </tr>            
+        <? endif; ?>        
+        <tr class="baseinfo">
+            <td>Vision</td>
+            <td><?= $this->item['vis_name'] ?></td>
+        </tr>    
+        <tr class="baseinfo">
+            <td>Racial Trait</td>
+            <td><?
+                $traits = array();
+                if ($this->item['rcs_attr_str']) {
+                    $traits[] = 'Str: ' . ($this->item['rcs_attr_str'] > 0 ? '+' : '') . $this->item['rcs_attr_str'];
+                }
+                if ($this->item['rcs_attr_con']) {
+                    $traits[] = 'Con: ' . ($this->item['rcs_attr_con'] > 0 ? '+' : '') . $this->item['rcs_attr_con'];
+                }
+                if ($this->item['rcs_attr_dex']) {
+                    $traits[] = 'Dex: ' . ($this->item['rcs_attr_dex'] > 0 ? '+' : '') . $this->item['rcs_attr_dex'];
+                }
+                if ($this->item['rcs_attr_int']) {
+                    $traits[] = 'Int: ' . ($this->item['rcs_attr_int'] > 0 ? '+' : '') . $this->item['rcs_attr_int'];
+                }
+                if ($this->item['rcs_attr_wis']) {
+                    $traits[] = 'Wis: ' . ($this->item['rcs_attr_wis'] > 0 ? '+' : '') . $this->item['rcs_attr_wis'];
+                }
+                if ($this->item['rcs_attr_cha']) {
+                    $traits[] = 'Cha: ' . ($this->item['rcs_attr_cha'] > 0 ? '+' : '') . $this->item['rcs_attr_cha'];
+                }
+            
+            ?>
+            
+            <?= implode('; ', $traits) ?></td>
+        </tr>  
+        <tr class="baseinfo">
+            <td>Favoured Class</td>
+            <td><a href="/class/view/<?= $this->item['rce_favouredclassClass']->cls_id ?>"><?= $this->item['rce_favouredclassClass']->cls_name ?></a></td>
+        </tr>          
+
+        <? if ( $this->item['rce_detail']): ?>
+            <tr class="baseinfo">
+                <td colspan="2" class="detailtext"><?= $this->item['rce_detail'] ?></td>
+            </tr>        
+        <? endif; ?>
+        
+    </tbody>
+</table>
+<br/><br/>
+<table>
+    <tr><?= $this->partialLoop('partials/_raceRow.phtml', $this->item['rce_subracelist']); ?></tr>
+</table>
+
+<?php if ($this->item['rce_img']): ?>
+<img class="hidden cover" src="/img/race/<?= $this->item['rce_img'] ?>">
+<?php endif; ?>
+
+<? foreach($this->item['rce_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/race/">Races</a>
+<a class="menuedit" href="/race/edit/<?= $this->item['rce_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

@@ -1,0 +1,23 @@
+<tr class="list_races">
+    <td class="name"><?= $this->rce_name ?></td>
+    <td class="att"><?= $this->rce_att ?></td>
+    <td class="ecl"><?= $this->rce_ecl ?></td>
+    
+    
+    <td class="source"><?= $this->src_name ?></td>    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/race/view/' . $this->rce_id, 
+                                  array("type" => "race", 
+                                        "id"=>$this->rce_id));
+        echo $this->Icons()->editIcon('/race/edit/' . $this->rce_id, 
+                                      array("type" => "race", 
+                                            "id"=>$this->rce_id));
+        echo $this->Icons()->copyIcon(null, 
+                                        array("type" => "race", 
+                                              "id"=>$this->rce_id));        
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "race", 
+                                              "id"=>$this->rce_id));
+        ?></td>
+        
+</tr>

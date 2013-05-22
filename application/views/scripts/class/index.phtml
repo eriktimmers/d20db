@@ -1,0 +1,12 @@
+<h1>Classes</h1>
+
+<?= $this->form ?>
+
+<table>
+    <tr><th>Name</th><th>Type</th><th>System</th><th>Sources</th><th>World</th></tr>
+    <tr><?= $this->partialLoop('partials/_classRow.phtml', $this->list); ?></tr>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/class/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

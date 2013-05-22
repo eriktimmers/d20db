@@ -1,0 +1,20 @@
+<tr class="list_spells">
+    <td class="name"><?= $this->spl_name ?></td>
+    <td class="classlevel"><?= $this->cls_name ?></td>
+    <td class="description"><?= $this->spl_shortdescription ?></td>
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/spell/view/' . $this->spl_id, 
+                                  array("type" => "spell", 
+                                        "id"=>$this->spl_id));
+        echo $this->Icons()->editIcon('/spell/edit/' . $this->spl_id, 
+                                      array("type" => "spell", 
+                                            "id"=>$this->spl_id));       
+        echo $this->Icons()->copyIcon(null, 
+                                        array("type" => "spell", 
+                                              "id"=>$this->spl_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "spell", 
+                                              "id"=>$this->spl_id));
+        ?></td>
+        
+</tr>

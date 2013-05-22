@@ -1,0 +1,81 @@
+<h1><?= $this->item['cls_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>
+        <? if ($this->item['cls_parent']): ?>
+        <tr class="baseinfo">
+            <td>Subclass of:</td>
+            <td><a href="/class/view/<?= $this->item['cls_parent']->cls_id ?>"><?= $this->item['cls_parent']->cls_name ?></a></td>
+        </tr>
+        <? endif; ?>        
+        <tr class="baseinfo">
+            <td>Short Description</td>
+            <td><?= $this->item['cls_short_description'] ?></td>
+        </tr>
+        <? if ($this->item['cls_npc'] == 'Y'): ?>
+        <tr class="baseinfo">
+            <td>NPC Class</td>
+            <td>Yes</td>
+        </tr>        
+        <? endif; ?>        
+        <? if ($this->item['cls_prestige'] == 'Y'): ?>
+        <tr class="baseinfo">
+            <td>Prestige Class</td>
+            <td>Yes</td>
+        </tr>        
+        <? endif; ?>               
+        
+        <? if ($this->item['wrl_name']): ?>
+        <tr class="baseinfo">
+            <td>World</td>
+            <td><?= $this->item['wrl_name'] ?></td>
+        </tr>        
+        <? endif; ?>
+        <tr class="baseinfo">
+            <td>Arcane Spells</td>
+            <td><?= ($this->item['cls_arcanespells'] == 'Y' ? 'Yes' : '-') ?></td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Divine Spells</td>
+            <td><?= ($this->item['cls_divinespells'] == 'Y' ? 'Yes' : '-') ?></td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Psionics</td>
+            <td><?= ($this->item['cls_psionics'] == 'Y' ? 'Yes' : '-') ?></td>
+        </tr>
+        <? if ($this->item['cls_aggregated']): ?>
+        <tr class="baseinfo">
+            <td>Use spells of:</td>
+            <td><a href="/class/view/<?= $this->item['cls_aggregated']->cls_id ?>"><?= $this->item['cls_aggregated']->cls_name ?></a></td>
+        </tr>        
+        <? endif; ?>
+        <? foreach($this->item['cls_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['clso_page'] ? 'p' . $value['clso_page'] : '') ?></id></td>
+            </tr>        
+        <? endforeach; ?>
+        
+    </tbody>
+</table>
+
+<? if (is_array($this->item['cls_subclasses']) && count($this->item['cls_subclasses']) > 0): ?>
+
+<h2>Subclasses</h2>
+<table class="subclasstable">
+    <tr><th>Name</th><th>Source</th><th>Description</th></tr>
+    <tr><?= $this->partialLoop('partials/_subclassRow.phtml', $this->item['cls_subclasses']); ?></tr>
+</table>
+<? endif; ?>
+
+<?php if ($this->item['cls_img']): ?>
+<img class="hidden cover" src="/img/class/<?= $this->item['cls_img'] ?>">
+<?php endif; ?>
+
+<? foreach($this->item['cls_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/class/">Classes</a>
+<a class="menuedit" href="/class/edit/<?= $this->item['cls_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

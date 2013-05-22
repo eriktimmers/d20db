@@ -1,0 +1,20 @@
+<tr class="list_deities">
+    <td class="name"><?= $this->dei_name ?></td>
+    <td class="pantheon"><?= $this->panth_name ?></td>    
+    <td class="alignment"><?= $this->al_name ?></td>    
+    <td class="domains"><?= $this->dei_domains ?></td> 
+    <td class="weapon"><?= $this->dei_weapon ?></td>     
+    <td class="source"><?= $this->src_name ?></td>    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/deity/view/' . $this->dei_id, 
+                                  array("type" => "deity", 
+                                        "id"=>$this->dei_id));
+        echo $this->Icons()->editIcon('/deity/edit/' . $this->dei_id, 
+                                      array("type" => "deity", 
+                                            "id"=>$this->dei_id));       
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "deity", 
+                                              "id"=>$this->dei_id));
+        ?></td>
+        
+</tr>

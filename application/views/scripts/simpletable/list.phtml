@@ -1,0 +1,11 @@
+<h1><?= ucfirst($this->type) ?></h1>
+
+<ul>
+    <? foreach($this->list as $item): ?>
+    <?= $this->SystemRow($item, $this->type, $this->prefix, $this->linkPrefix); ?>    
+    <? endforeach; ?>
+</ul>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="<?= $this->linkPrefix ?>edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

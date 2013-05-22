@@ -1,0 +1,114 @@
+<h1><?= $this->item['spl_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>
+        <tr class="baseinfo">
+            <td>Game System</td>
+            <td><?= $this->item['sys_name'] ?></td>
+        </tr>   
+        <? if ($this->item['wrl_name']): ?>
+            <tr class="baseinfo">
+                <td>Material Component</td>
+                <td><?= $this->item['wrl_name'] ?></td>
+            </tr>      
+        <? endif; ?>        
+        <? foreach((array)$this->item['spl_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['deso_page'] ? 'p' . $value['deso_page'] : '') ?></a></td>
+            </tr>        
+        <? endforeach; ?>
+        <tr class="baseinfo">
+            <td>School</td>
+
+            <td><?= $this->item['spl_schools'][0]['sch_name'] ?>
+            <?= ($this->item['spl_schools'][0]['subs_name'] ? '(' . $this->item['spl_schools'][0]['subs_name'] . ')' : '') ?>
+            <? foreach((array)$this->item['spl_descriptors'] as $value): ?>
+                [<?= $value['dcp_name']  ?>]
+            <? endforeach; ?>
+            </td>
+        </tr>        
+        <tr class="baseinfo">
+            <td>Short description</td>
+            <td><?= $this->item['spl_shortdescription'] ?></td>
+        </tr>     
+        <? foreach((array)$this->item['spl_classes'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Class/Level</td>
+                <td><a href="/class/view/<?= $value['cls_id'] ?>"><?= $value['cls_name'] ?> <?= $value['spcl_level'] ?></a></td>
+            </tr>        
+        <? endforeach; ?>
+        <? foreach((array)$this->item['spl_domains'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Domains</td>
+                <td><?= $value['dom_name'] ?> <?= $value['spdm_level'] ?></td>
+            </tr>        
+        <? endforeach; ?>
+   
+        <tr class="baseinfo">
+            <td>Components</td>
+            <td><?= $this->item['spl_components'] ?></td>
+        </tr>          
+        <? if ($this->item['spl_material']): ?>
+            <tr class="baseinfo">
+                <td>Material Component</td>
+                <td><?= $this->item['spl_material'] ?></td>
+            </tr>      
+        <? endif; ?>
+        <tr class="baseinfo">
+            <td>Casting time</td>
+            <td><?= $this->item['spl_castingtime'] ?></td>
+        </tr>               
+        <tr class="baseinfo">
+            <td>Range</td>
+            <td><?= $this->item['spl_range'] ?></td>
+        </tr>               
+        <tr class="baseinfo">
+            <td><?= $this->item['spl_effecttype'] ?></td>
+            <td><?= $this->item['spl_effect'] ?></td>
+        </tr>          
+        <tr class="baseinfo">
+            <td>Duration</td>
+            <td><?= $this->item['spl_duration'] ?></td>
+        </tr>               
+        <tr class="baseinfo">
+            <td>Saving Throw</td>
+            <td><?= $this->item['spl_savingthrow'] ?></td>
+        </tr>   
+        <tr class="baseinfo">
+            <td>Spell Resistance</td>
+            <td><?= $this->item['spl_spellresistance'] ?></td>
+        </tr>      
+        <? if ($this->item['spl_longdescription']): ?>
+            <tr class="baseinfo">
+                <td colspan="2" class="detailtext"><?= $this->item['spl_longdescription'] ?></td>
+            </tr>   
+        <? else: ?>    
+            <tr class="baseinfo">
+                <td colspan="2" class="detailtext"><?= $this->item['spl_mediumdescription'] ?></td>
+            </tr>             
+        <? endif; ?>            
+
+    
+        
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+<?php if ($this->item['spl_img']): ?>
+<img class="hidden cover" src="/img/spell/<?= $this->item['spl_img'] ?>">
+<?php endif; ?>
+
+<? foreach((array)$this->item['spl_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/spell/">Spells</a>
+<a class="menuedit" href="/spell/edit/<?= $this->item['spl_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

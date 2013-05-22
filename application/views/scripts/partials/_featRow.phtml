@@ -1,0 +1,17 @@
+<tr class="list_feats">
+    <td class="name"><?= $this->fea_name ?></td>
+    <td class="desc"><?= $this->fea_shortdescription ?></td>
+    <td class="source"><?= $this->src_name ?></td>    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/feat/view/' . $this->fea_id, 
+                                  array("type" => "feat", 
+                                        "id"=>$this->fea_id));
+        echo $this->Icons()->editIcon('/feat/edit/' . $this->fea_id, 
+                                      array("type" => "feat", 
+                                            "id"=>$this->fea_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "feat", 
+                                              "id"=>$this->fea_id));
+        ?></td>
+        
+</tr>

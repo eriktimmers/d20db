@@ -1,0 +1,9 @@
+<li class="list_systemname"><? 
+    echo $this->sys_name; 
+    echo $this->Icons()->editIcon($this->controllerBasePath . 'edit/' . $this->sys_id, 
+                                  array("type" => "gamesystem", 
+                                        "id"=>$this->sys_id));
+    echo $this->Icons()->deleteIcon(null, 
+                                  array("type" => "gamesystem", 
+                                        "id"=>$this->sys_id));
+?></li>

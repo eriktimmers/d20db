@@ -1,0 +1,101 @@
+<h1><?= $this->item['wea_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>  
+
+        <tr class="baseinfo">
+            <td>Training needed:</td>
+            <td class="secondcolumn"><?= $this->item['wea_trainingcategory'] ?></td>
+        </tr>  
+        <tr class="baseinfo">
+            <td>Reach:</td>
+            <td class="secondcolumn"><?= $this->item['wea_reachcategory'] ?> 
+                <?= ($this->item['wea_reachsubcategory'] ? '(' . $this->item['wea_reachsubcategory'] . ')' : '') ?></td>
+        </tr>         
+        <tr class="baseinfo">
+            <td>Encumbrance:</td>
+            <td class="secondcolumn"><?= $this->item['wea_encumbrance'] ?> </td>
+        </tr>            
+        <tr class="baseinfo">
+            <td>Cost:</td>
+            <td class="secondcolumn"><?= $this->item['wea_cost'] ?> </td>
+        </tr>  
+        <tr class="baseinfo">
+            <td>Damage:</td>
+            <td class="secondcolumn">
+                <?= ($this->item['wea_dmg_s'] ? 'Small: ' . $this->item['wea_dmg_s'] . '; ' : '') ?>
+                <?= ($this->item['wea_dmg_m'] ? ' Medium: ' . $this->item['wea_dmg_m'] : '') ?>
+            </td>
+        </tr>         
+        <tr class="baseinfo">
+            <td>Critical:</td>
+            <td class="secondcolumn">
+                <?= ($this->item['wea_critical_range'] < 20 ? $this->item['wea_critical_range'] . '-20' : '20') ?>
+                (x<?= $this->item['wea_critical_multiplier'] ?>)
+            </td>
+        </tr>     
+        <tr class="baseinfo">
+            <td>Range increment:</td>
+            <td class="secondcolumn"><?= ( $this->item['wea_range_increment'] ? $this->item['wea_range_increment'] . ' ft' : '-') ?></td>
+        </tr>    
+        <tr class="baseinfo">
+            <td>Weight:</td>
+            <td class="secondcolumn"><?= $this->item['wea_weight'] ?> lb</td>
+        </tr>         
+        <tr class="baseinfo">
+            <td>Damage Type:</td>
+            <td class="secondcolumn"><?= $this->item['wdt_name'] ?></td>
+        </tr>   
+        <tr class="baseinfo">
+            <td>Progress Level:</td>
+            <td class="secondcolumn">PL <?= $this->item['wea_progresslevel'] ?></td>
+        </tr>
+        <? if ($this->item['wea_size']): ?>
+        <tr class="baseinfo">
+            <td>Size:</td>
+            <td class="secondcolumn"><?= $this->item['wea_size_name'] ?></td>
+        </tr>   
+        <? endif; ?>
+        <? if ($this->item['wea_rateoffire']): ?>
+        <tr class="baseinfo">
+            <td>Rate of Fire:</td>
+            <td class="secondcolumn"><?= $this->item['wea_rateoffire_name'] ?></td>
+        </tr>          
+        <? endif; ?>
+        <? if ($this->item['wea_magazine']): ?>
+        <tr class="baseinfo">
+            <td>Magazine:</td>
+            <td class="secondcolumn"><?= $this->item['wea_magazine'] ?></td>
+        </tr>     
+        <? endif; ?>
+        <? if ($this->item['wea_special']): ?>
+        <tr class="baseinfo">
+            <td><?= ($this->item['wea_specialtype'] ? $this->item['wea_specialtype'] : 'Special') ?>:</td>
+            <td class="secondcolumn"><?= $this->item['wea_special'] ?></td>
+        </tr>     
+        <? endif; ?>        
+        
+        <? foreach((array)$this->item['wea_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['weso_page'] ? 'p' . $value['weso_page'] : '') ?></id></td>
+            </tr>        
+        <? endforeach; ?>
+        <tr class="baseinfo">
+            <td colspan="2" class="detailtext"><?= $this->item['wea_description'] ?></td>
+        </tr>              
+
+    </tbody>
+</table>
+
+<?php if ($this->item['wea_img']): ?>
+<img class="hidden cover" src="/img/equipment/<?= $this->item['wea_img'] ?>">
+<?php endif; ?>
+
+<? foreach((array)$this->item['wea_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/weapon/">Weapons</a>
+<a class="menuedit" href="/weapon/edit/<?= $this->item['wea_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

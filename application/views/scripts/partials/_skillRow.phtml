@@ -1,0 +1,20 @@
+<tr class="list_skills">
+    <td class="name"><?= $this->skil_name ?></td>
+    <td class="ability"><?= $this->skil_keyability ?></td>
+    <td class="source"><?= $this->src_name ?></td>    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/skill/view/' . $this->skil_id, 
+                                  array("type" => "skill", 
+                                        "id"=>$this->skil_id));
+        echo $this->Icons()->editIcon('/skill/edit/' . $this->skil_id, 
+                                      array("type" => "skill", 
+                                            "id"=>$this->skil_id));
+        echo $this->Icons()->copyIcon(null, 
+                                        array("type" => "skill", 
+                                              "id"=>$this->skil_id));        
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "skill", 
+                                              "id"=>$this->skil_id));
+        ?></td>
+        
+</tr>

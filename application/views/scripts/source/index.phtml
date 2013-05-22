@@ -1,0 +1,13 @@
+
+<h1>Sources</h1>
+
+<?= $this->form ?>
+
+<table>
+    <tr><th>Name</th><th>Abbreviation</th><th>Publisher</th><th>Type</th><th>Game System</th><th>World</th></tr>
+    <tr><?= $this->partialLoop('partials/_sourceRow.phtml', $this->list); ?></tr>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/source/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

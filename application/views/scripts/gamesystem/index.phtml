@@ -1,0 +1,8 @@
+
+<ul>
+    <?= $this->partialLoop('partials/_systemRow.phtml', $this->systems); ?>    
+</ul>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/gamesystem/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

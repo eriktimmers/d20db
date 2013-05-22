@@ -1,0 +1,40 @@
+<h1><?= $this->item['src_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>
+        <tr class="baseinfo">
+            <td>Abbreviation</td>
+            <td><?= $this->item['src_abbriviation'] ?></td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Type</td>
+            <td><?= $this->item['sct_name'] ?></td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Game System</td>
+            <td><?= $this->item['sys_name'] ?></td>
+        </tr>
+        <? if ($this->item['wrl_name']): ?>
+        <tr class="baseinfo">
+            <td>World</td>
+            <td><?= $this->item['wrl_name'] ?></td>
+        </tr>        
+        <? endif; ?>
+        <tr class="baseinfo">
+            <td>Publisher</td>
+            <td><?= $this->item['src_publisher'] ?></td>
+        </tr>
+        <tr class="baseinfo">
+            <td>Author</td>
+            <td><?= $this->item['src_author'] ?></td>
+        </tr>
+    </tbody>
+</table>
+
+<?php if ($this->item['src_abbriviation']): ?>
+<img class="hidden cover" src="/img/cover/<?= $this->item['src_abbriviation'] ?>.jpg">
+<?php endif; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/source/">Sources</a>
+<a class="menuedit" href="/source/edit/<?= $this->item['src_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

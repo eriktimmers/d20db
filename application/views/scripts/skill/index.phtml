@@ -1,0 +1,12 @@
+<h1>Skills</h1>
+
+<?= $this->form ?>
+
+<table>
+    <!--tr><th>Name</th><th>Type</th><th>System</th><th>Sources</th><th>World</th></tr-->
+    <tr><?= $this->partialLoop('partials/_skillRow.phtml', $this->list); ?></tr>
+</table>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/skill/edit/">Create New</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

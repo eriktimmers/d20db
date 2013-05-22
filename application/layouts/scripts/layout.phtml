@@ -1,0 +1,38 @@
+<?= $this->doctype(); ?> 
+<html lang="en">
+    <head>  
+        <meta charset="utf-8">  
+         
+        <? echo $this->headTitle('Erik\'s D20 Database', 'PREPEND')->setSeparator(' - ');
+           echo $this->HeadMeta()->appendName('author', 'Erik');   
+           echo $this->headLink()->appendStylesheet("/css/styles.css?v=1.0")
+                                 ->appendStylesheet("/css/custom-theme/jquery-ui-1.8.14.custom.css");
+        ?>
+    </head>
+    <body>
+        <div id="container">
+            <div class="liststyle" id="textcontainer">
+                <?php echo $this->layout()->content; ?>
+                <div id="sitedescription">Erik's D20-database</div>  
+                <div id="menubar">
+                    <a class="menuhome" href="/">Home</a>
+                    <?= $this->placeholder('buttons') ?></div>
+            </div>
+            <div class="hidden" id="sidbar"></div>
+        </div>
+        
+        
+        <?= $this->inlineScript()
+                 ->prependFile(
+                    '/js/generalscripts.js',
+                    'text/javascript')
+                  ->prependFile(
+                    '/js/jquery-ui-1.8.14.custom.min.js',
+                    'text/javascript')
+                ->prependFile(
+                    '/js/jquery-1.6.1.min.js',
+                    'text/javascript');
+        ?>
+    </body>
+</html>
+                

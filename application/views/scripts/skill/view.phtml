@@ -1,0 +1,95 @@
+<h1><?= $this->item['skil_name'] ?></h1>
+<table border="0" cellpadding="0" cellspacing="0" class="baseinfotable">
+    <tbody>  
+        <tr class="baseinfo">
+            <td>Key ability</td>
+            <td><?= $this->item['skil_keyability'] ?></td>
+        </tr>  
+        <tr class="baseinfo">
+            <td>Trained Only?</td>
+            <td><?= ($this->item['skil_trainedonly'] == 'Y' ? 'Yes' : 'No') ?></td>
+        </tr>  
+        <tr class="baseinfo">
+            <td>Armor check penalty?</td>
+            <td><?= ($this->item['skil_armor'] == 'Y' ? 'Yes' : 'No') ?></td>
+        </tr>  
+       <? if ($this->item['skil_description']): ?>
+            <tr class="baseinfo">
+                <td>Description</td>
+                <td><?= $this->item['skil_description'] ?></td>
+            </tr>  
+        <? endif; ?>
+       <? if ($this->item['skil_check']): ?>
+            <tr class="baseinfo">
+                <td>Skill check</td>
+                <td><?= $this->item['skil_check'] ?></td>
+            </tr>  
+        <? endif; ?>
+       <? if ($this->item['skil_action']): ?>
+            <tr class="baseinfo">
+                <td>Action</td>
+                <td><?= $this->item['skil_action'] ?></td>
+            </tr>  
+        <? endif; ?>
+       <? if ($this->item['skil_tryagain']): ?>
+            <tr class="baseinfo">
+                <td>Try Again</td>
+                <td><?= $this->item['skil_tryagain'] ?></td>
+            </tr>  
+        <? endif; ?>
+       <? if ($this->item['skil_special']): ?>
+            <tr class="baseinfo">
+                <td>Special</td>
+                <td><?= $this->item['skil_special'] ?></td>
+            </tr>  
+        <? endif; ?>            
+       <? if ($this->item['skil_synergy']): ?>
+            <tr class="baseinfo">
+                <td>Synergy</td>
+                <td><?= $this->item['skil_synergy'] ?></td>
+            </tr>  
+        <? endif; ?>   
+       <? if ($this->item['skil_restriction']): ?>
+            <tr class="baseinfo">
+                <td>Restriction</td>
+                <td><?= $this->item['skil_restriction'] ?></td>
+            </tr>  
+        <? endif; ?>   
+       <? if ($this->item['skil_untrained']): ?>
+            <tr class="baseinfo">
+                <td>Untrained</td>
+                <td><?= $this->item['skil_untrained'] ?></td>
+            </tr>  
+        <? endif; ?>   
+       <? if ($this->item['skil_epic']): ?>
+            <tr class="baseinfo">
+                <td>Epic Use</td>
+                <td><?= $this->item['skil_epic'] ?></td>
+            </tr>  
+        <? endif; ?>  
+        <? if ($this->item['wrl_name']): ?>
+            <tr class="baseinfo">
+                <td>World</td>
+                <td><?= $this->item['wrl_name'] ?></td>
+            </tr>       
+        <? endif; ?>              
+        <? foreach($this->item['skil_sources'] as $value): ?>
+            <tr class="baseinfo">
+                <td>Source</td>
+                <td><a href="/source/view/<?= $value['src_id'] ?>"><?= $value['src_name'] ?> <?= ($value['skso_page'] ? 'p' . $value['skso_page'] : '') ?></id></td>
+            </tr>        
+        <? endforeach; ?>        
+    </tbody>
+</table>        
+
+<? //`skil_keyability``skil_trainedonly``skil_armor``skil_description``skil_check``skil_action``skil_tryagain``skil_special`
+// `skil_synergy``skil_restriction``skil_untrained``skil_epic``skil_world` ?>
+
+<? foreach($this->item['skil_sources'] as $value): ?>
+<img class="hidden cover" src="/img/cover/<?= $value['src_abbriviation'] ?>.jpg">
+<? endforeach; ?>
+
+<?php $this->placeholder('buttons')->captureStart(); ?>
+<a class="mainmenu" href="/skill/">Races</a>
+<a class="menuedit" href="/skill/edit/<?= $this->item['skil_id'] ?>">Edit</a>
+<?php $this->placeholder('buttons')->captureEnd() ?>

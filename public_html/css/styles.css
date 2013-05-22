@@ -1,0 +1,236 @@
+/* 
+    Document   : styles
+    Created on : 24-Jul-2011, 10:54:12
+    Author     : Erik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    font: 12px Arial,Helvetica;
+    margin: 0;
+    padding: 50px;
+    background: black;
+    color: #552413;
+}
+
+td {
+    vertical-align: top;
+    margin: 0px;
+}
+
+#container {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#textcontainer {
+    position: relative;
+}
+
+#sitedescription {
+    padding:0;
+    margin:0;
+    position: absolute;
+    z-index: 0;
+    top: -68px;
+    left: -6px;
+    font: 85px Arial,Helvetica; 
+    color: #FFDCA4;    
+    font-weight: bold;
+    width: 900px;
+    text-shadow: 2px 2px 10px #FFDCA4;    
+}
+
+#menubar {
+    padding:0;
+    margin:0;
+    position: absolute;
+    z-index: 0;    
+    top: 0px;
+    left: 0px;
+    width: 500px;    
+    padding: 3px 5px;
+}
+
+.maintext {
+    width: 680px;
+    min-height: 450px;
+    height: 100%;
+    border: 1px solid #E0853F;
+    border-radius: 10px;
+    -moz-border-radius: 10px; /* Firefox 3.6 and earlier */	    
+    background: #FFDCA4;
+    padding: 30px 20px;    
+    float: left;
+}
+
+.liststyle {
+    width: 1024px;
+    min-height: 600px;
+    border: 1px solid #E0853F;
+	border-radius: 10px;
+	-moz-border-radius: 10px; /* Firefox 3.6 and earlier */	    
+    background: #FFDCA4;
+    padding: 30px 20px;     
+    float: left;
+}
+
+.sidebar {
+    width: 250px;
+    border: 1px solid #E0853F;
+	border-radius: 10px;
+	-moz-border-radius: 10px; /* Firefox 3.6 and earlier */	    
+    background: #FFDCA4;
+    padding: 20px 20px 0px 20px;    
+    float: right;
+}
+
+
+/* imghandling */
+.hidden, .hiddencover {
+    display: none;
+}
+
+img.cover {
+    width: 250px;
+    float:right;
+    margin-bottom: 20px;
+    border: 1px solid #E0853F;
+    -webkit-box-shadow: 3px 3px 5px black; /* Safari and Chrome */
+    box-shadow: 3px 3px 5px black;    
+}
+
+/* list */
+
+.icon_delete, .icon_copy {
+    cursor: pointer;
+}
+
+/* list - sources */
+.list_sources td, .list_classes td, .list_feats td, .list_races td,
+.list_skills td, .list_deities td, .schools td, .subschools td, .list_spells td,
+.list_armour td, .list_weapon td
+{
+   padding: 0px 5px 0px 5px;
+}
+
+.list_sources .name, .list_classes .name, .list_feats .name, 
+.list_races .name, .list_skills .name, .list_deities .name, .list_spells .name,
+.list_armour .name, .list_weapon .name
+{
+    font-weight: bold;
+}
+.list_sources img, .list_classes img, .list_feats img, .list_races img,
+.list_skills img, .list_deities img, .schools img, .subschools img,
+.list_spells img, .list_armour img, .list_weapon img
+{
+    margin: 0px 2px 0px 2px;
+}
+
+
+.list_classes .icons, .list_feats .icons, .list_races .icons, .list_spells .icons, 
+.list_skills .icons, .list_deities .icons, .schools .icons, .subschools .icons,
+.list_armour .icons, .list_weapon .icons
+{
+    white-space: nowrap;
+}
+
+/* list spells */
+
+.list_spells .name {
+    min-width: 145px;
+}
+
+.list_spells .classlevel {
+    min-width: 145px;
+}
+
+.list_spells .description {
+    min-width: 300px;
+}
+
+/* list classes */
+.list_classes .name {
+    width: 145px;
+}
+
+.list_classes .system {
+    width: 140px;
+}
+
+.world {
+    white-space: nowrap;
+}
+
+/* list feats */
+
+.list_feats .name {
+    width: 160px;
+}
+
+.list_feats .source {
+    width: 230px;
+}
+
+/* list school */
+
+.schools .name {
+    font-weight: bold;
+}
+
+/* detail pages */
+
+.baseinfotable a {
+    color: #552413;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.baseinfotable a:hover {
+    color: #E0853F;
+    text-decoration: underline;
+}
+
+.baseinfotable td {
+    font: 12px Arial,Helvetica;
+    padding: 2px 15px 2px 15px;
+    vertical-align: top;
+}
+
+.baseinfotable td:first-child {
+    font-weight: bold;    
+}
+
+.baseinfotable td.detailtext {
+    font-weight: normal;
+    width: 100%;    
+}
+
+.baseinfo td:first-child {
+    white-space: nowrap;
+}
+
+.baseinfo td.detailtext {
+    white-space: normal;
+}
+
+.secondcolumn {
+    width: 80%;
+}
+
+/* class detail */
+
+.subclasstable .icons {
+    width: 70px;
+}
+
+.subclasstable .name {
+    width: 130px;
+}
+

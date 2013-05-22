@@ -1,0 +1,30 @@
+<tr class="list_weapon">
+    <td class="name"><?= $this->wea_name ?></td>
+    <td class="training"><?= $this->wea_trainingcategory ?></td>
+    <td class="reach"><?= $this->wea_reachcategory ?><?= $this->wea_reachsubcategory ? ', ' . $this->wea_reachsubcategory : '' ?></td>
+    <td class="encumbrance"><?= $this->wea_encumbrance ?></td> 
+    <td class="damage"><?= $this->wea_dmg_m ?></td> 
+    <td class="damage"><?= ($this->wea_critical_range < 20 ? $this->wea_critical_range . '-20/' : '' ) . 
+                            $this->wea_critical_multiplier ?>x
+    </td>     
+    <td class="range"><?= $this->wea_range_increment > 0 ? $this->wea_range_increment . " ft." : '-' ?></td>     
+    <td class="damage"><?= $this->wdt_name ?></td> 
+    
+    
+    
+    <td class="icons"><?
+        echo $this->Icons()->viewIcon('/weapon/view/' . $this->wea_id, 
+                                  array("type" => "weapon", 
+                                        "id"=>$this->wea_id));
+        echo $this->Icons()->editIcon('/weapon/edit/' . $this->wea_id, 
+                                      array("type" => "weapon", 
+                                            "id"=>$this->wea_id));       
+        echo $this->Icons()->copyIcon(null, 
+                                        array("type" => "weapon", 
+                                              "id"=>$this->wea_id));
+        echo $this->Icons()->deleteIcon(null, 
+                                        array("type" => "weapon", 
+                                              "id"=>$this->wea_id));
+        ?></td>
+        
+</tr>
